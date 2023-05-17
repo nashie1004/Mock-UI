@@ -1,10 +1,13 @@
 'use client'
 import { FaBars, FaAngry, FaCalendarAlt, FaEye } from "react-icons/fa";
+import { Data } from "@/context/Context";
+import { useContext } from "react";
 
 export default function Card() {
+    const {setModalIsClosed} = useContext(Data);
 
     function showModal(): void{
-        alert(1)
+        setModalIsClosed(true)
     }
 
   return (

@@ -119,26 +119,61 @@ body{
   }
 }
 .Modal-bg{
+  display: none;
   background: $modalBg;
   min-height: 100vh;
   z-index: 3;
   position: fixed;
   top: 0;
   left: 0;
-  display: grid;
   place-items: center;
 
   .Modal{
     z-index: 4;
     background: $white;
-    padding: 1.5rem;
+    padding: 1.8rem;
     width: clamp(300px, 50%, 500px);
+    border-radius: .4rem;
+    display: grid;
+    gap: .8rem;
 
-    button:first-of-type{
-      @include btn($light-blue, $white, $dodgerblue);
+    h2{
+      display: flex;
+
+      .closeModal{
+        margin-left: auto;
+        background: $lightgreyFont;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        
+        &:hover{
+          background: $inputBorder;
+        }
+      }
     }
-    button:last-of-type{
-      @include btn($orange, $white, $coral);
+    .text{
+      padding: .4rem;
+      padding-bottom: 1.5rem;
+      border: 3px dashed $darkishgreyFont;
+    }
+    .btns{
+      display: flex;
+      justify-content: center;
+      gap: .6rem;
+
+      button:first-of-type{
+        @include btn($light-blue, $white, $dodgerblue);
+      }
+      button:last-of-type{
+        @include btn($orange, $white, $coral);
+      }
     }
   }
+}
+.toggleModal{
+  display: grid;
 }
