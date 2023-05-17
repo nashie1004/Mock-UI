@@ -26,7 +26,7 @@ export default function Card() {
                 <span>
                     <FaEye />
                     <span onClick={showModal} className="modal-click">
-                        Read full
+                        Read Full
                     </span>
                 </span>
             </p>

@@ -9,6 +9,8 @@ $inputBorder: rgb(214, 200, 200);
 $darkishgreyFont: rgb(134, 133, 133);
 $greyFont: grey;
 $lightgreyFont: rgb(224, 214, 214);
+$modalBg: rgba(173, 166, 166, 0.9);
+$white: white;
 
 *{
   padding: 0;
@@ -18,34 +20,46 @@ $lightgreyFont: rgb(224, 214, 214);
 }
 body{
   min-height: 100vh;
-  padding: .6rem;
+  padding: .8rem;
+}
+@mixin btn($border, $fontColor, $bgColor){
+  border: 1px solid $border;
+  color: $fontColor;
+  font-size: 1.1rem;
+  padding: .4rem .7rem;
+  cursor: pointer;
+  border-radius: .4rem;
+  background: $bgColor;
+  height: 40px;
 }
 .header{
-  @mixin btn($border, $fontColor){
-    border: 1px solid $border;
-    color: $fontColor;
-    font-size: 1.1rem;
-    padding: .4rem;
-    border-radius: .4rem;
-    background: $opacitywhite;
-  }
-  button:first-of-type{
-    @include btn($light-blue, $dodgerblue);
-  }
-  button:last-of-type{
-    @include btn($orange, $coral);
-  }
-  input{
-    font-size: 1.1rem;
-    border-radius: .4rem;
-    padding: .8rem 1.3rem;
-    border: 1px solid $inputBorder;
+  
+  .header-options{
+    margin-top: 1rem;
+    display: flex;
+    gap: .7rem;
+
+    button:first-of-type{
+      @include btn($light-blue, $dodgerblue, $opacitywhite);
+    }
+    button:last-of-type{
+      @include btn($orange, $coral, $opacitywhite);
+    }
+    input{
+      margin-left: auto;
+      font-size: 1.1rem;
+      border-radius: .4rem;
+      padding: .8rem 1.3rem;
+      border: 1px solid $inputBorder;
+      color: $lightgreyFont;
+    }
   }
 }
 .card-container{
   display: grid;
   gap: .5rem;
   margin-inline: .7rem;
+  margin-top: .4rem;
 
   .Card{
     display: flex; 
@@ -53,6 +67,8 @@ body{
     padding: 1.1rem;
     border-radius: 1rem;
     gap: .6rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
   
     .options{
   
@@ -64,6 +80,7 @@ body{
         font-size: 1.3rem;
       }
       h3:last-of-type{
+        font-size: 1.1rem;
 
         span{
           margin-inline: .7rem;
@@ -73,21 +90,55 @@ body{
       p{
         color: $greyFont;
 
-        .modal-click{
-          color: $dodgerblue;
+        span{
+          margin-left: .6rem;
+
+          .modal-click{
+            margin: 0;
+            color: $dodgerblue;
+            cursor: pointer;
+          }
         }
       }
     }
     .boxes{
+      display: flex;
+      gap: .7rem;
 
       button{
+        cursor: pointer;
         color: $darkishgreyFont;
         font-size: 1.1rem;
-        padding: .4rem;
+        padding: .4rem .6rem;
         border: 1px solid $darkishgreyFont;
         border-radius: .4rem;
         background: $opacitywhite;
+        height: 40px;
       }
+    }
+  }
+}
+.Modal-bg{
+  background: $modalBg;
+  min-height: 100vh;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+
+  .Modal{
+    z-index: 4;
+    background: $white;
+    padding: 1.5rem;
+    width: clamp(300px, 50%, 500px);
+
+    button:first-of-type{
+      @include btn($light-blue, $white, $dodgerblue);
+    }
+    button:last-of-type{
+      @include btn($orange, $white, $coral);
     }
   }
 }
