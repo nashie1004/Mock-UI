@@ -7,11 +7,10 @@ interface ObjectType{
     setModalIsClosed: Dispatch<SetStateAction<boolean>>
 }
 
-export const Data = createContext();
+export const Data = createContext<ObjectType | null>(null);
 
-export default function Context({children}) {
+export default function Context({children}): React.ReactNode {
     const [modalIsClosed, setModalIsClosed] = useState<boolean>(false);
-
 
     const object: ObjectType = {
         modalIsClosed, 

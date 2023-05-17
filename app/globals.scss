@@ -30,7 +30,13 @@ body{
   cursor: pointer;
   border-radius: .4rem;
   background: $bgColor;
+  transition: background .25s;
   height: 40px;
+
+  &:hover{
+    color: $bgColor;
+    background: $fontColor;
+  }
 }
 .header{
   
@@ -40,10 +46,10 @@ body{
     gap: .7rem;
 
     button:first-of-type{
-      @include btn($light-blue, $dodgerblue, $opacitywhite);
+      @include btn($light-blue, $dodgerblue, $white);
     }
     button:last-of-type{
-      @include btn($orange, $coral, $opacitywhite);
+      @include btn($orange, $coral, $white);
     }
     input{
       margin-left: auto;
@@ -52,6 +58,11 @@ body{
       padding: .8rem 1.3rem;
       border: 1px solid $inputBorder;
       color: $lightgreyFont;
+
+      &:focus{
+        color: $darkishgreyFont;
+        outline: 1px solid $greyFont !important;
+      }
     }
   }
 }
@@ -69,7 +80,12 @@ body{
     gap: .6rem;
     flex-wrap: wrap;
     justify-content: space-around;
-  
+
+    &:hover{
+      outline: 1px solid $inputBorder;
+      // transform: scale(1.01);
+    }
+
     .options{
   
     }
@@ -114,6 +130,11 @@ body{
         border-radius: .4rem;
         background: $opacitywhite;
         height: 40px;
+
+        &:hover{
+          background: $darkishgreyFont;
+          color: $white;
+        }
       }
     }
   }
