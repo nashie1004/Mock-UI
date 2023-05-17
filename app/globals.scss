@@ -1,0 +1,93 @@
+$card-bg: rgb(243, 239, 239);
+$dodgerblue: dodgerblue;
+$light-blue: lightblue;
+$orange: rgb(233, 152, 3);
+$coral: coral;
+$opacitywhite: rgba(241, 231, 231, 0.5);
+$lightBlackFont: rgb(8, 26, 39);
+$inputBorder: rgb(214, 200, 200);
+$darkishgreyFont: rgb(134, 133, 133);
+$greyFont: grey;
+$lightgreyFont: rgb(224, 214, 214);
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: $lightBlackFont;
+}
+body{
+  min-height: 100vh;
+  padding: .6rem;
+}
+.header{
+  @mixin btn($border, $fontColor){
+    border: 1px solid $border;
+    color: $fontColor;
+    font-size: 1.1rem;
+    padding: .4rem;
+    border-radius: .4rem;
+    background: $opacitywhite;
+  }
+  button:first-of-type{
+    @include btn($light-blue, $dodgerblue);
+  }
+  button:last-of-type{
+    @include btn($orange, $coral);
+  }
+  input{
+    font-size: 1.1rem;
+    border-radius: .4rem;
+    padding: .8rem 1.3rem;
+    border: 1px solid $inputBorder;
+  }
+}
+.card-container{
+  display: grid;
+  gap: .5rem;
+  margin-inline: .7rem;
+
+  .Card{
+    display: flex; 
+    background: $card-bg; 
+    padding: 1.1rem;
+    border-radius: 1rem;
+    gap: .6rem;
+  
+    .options{
+  
+    }
+    .info{
+      flex: 1;
+      
+      h3:first-of-type{
+        font-size: 1.3rem;
+      }
+      h3:last-of-type{
+
+        span{
+          margin-inline: .7rem;
+          color: $darkishgreyFont;
+        }
+      }
+      p{
+        color: $greyFont;
+
+        .modal-click{
+          color: $dodgerblue;
+        }
+      }
+    }
+    .boxes{
+
+      button{
+        color: $darkishgreyFont;
+        font-size: 1.1rem;
+        padding: .4rem;
+        border: 1px solid $darkishgreyFont;
+        border-radius: .4rem;
+        background: $opacitywhite;
+      }
+    }
+  }
+}
