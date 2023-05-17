@@ -96,6 +96,8 @@ body{
     }
     .info{
       flex: 1;
+      display: grid;
+      gap: .2rem;
       
       h3:first-of-type{
         font-size: 1.3rem;
@@ -202,4 +204,17 @@ body{
 }
 .toggleModal{
   display: grid;
+}
+@media only screen and (max-width: 500px){
+  .header{
+    .header-options{
+      flex-wrap: wrap;
+      justify-content: center;
+
+      input{
+        margin: 0;
+      }
+    }
+  }
+
 }
