@@ -9,7 +9,7 @@ interface ObjectType{
 
 export const Data = createContext<ObjectType | null>(null);
 
-export default function Context({children}): React.ReactNode {
+export default function Context({children}) {
     const [modalIsClosed, setModalIsClosed] = useState<boolean>(false);
 
     const object: ObjectType = {

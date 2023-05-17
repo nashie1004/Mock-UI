@@ -6,7 +6,7 @@ $coral: coral;
 $opacitywhite: rgba(241, 231, 231, 0.5);
 $lightBlackFont: rgb(8, 26, 39);
 $inputBorder: rgb(214, 200, 200);
-$darkishgreyFont: rgb(134, 133, 133);
+$darkishgreyFont: rgb(151, 149, 149);
 $greyFont: grey;
 $lightgreyFont: rgb(224, 214, 214);
 $modalBg: rgba(173, 166, 166, 0.9);
@@ -44,6 +44,7 @@ body{
     margin-top: 1rem;
     display: flex;
     gap: .7rem;
+    align-items: center;
 
     button:first-of-type{
       @include btn($light-blue, $dodgerblue, $white);
@@ -82,12 +83,16 @@ body{
     justify-content: space-around;
 
     &:hover{
-      outline: 1px solid $inputBorder;
-      // transform: scale(1.01);
+      outline: 1px solid rgb(180, 166, 166);
     }
 
+    // todo
     .options{
-  
+      input{
+        margin-left: .5rem;
+        color: $card-bg;
+        background: $card-bg;
+      }
     }
     .info{
       flex: 1;
