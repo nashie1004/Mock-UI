@@ -25,7 +25,7 @@ export interface DataType{
     date: string
 }
 
-export const Data = createContext<ObjectType | null>(null);
+export const Data = createContext();
 
 export default function Context({children}) {
     const [modalIsClosed, setModalIsClosed] = useState<boolean>(false);
