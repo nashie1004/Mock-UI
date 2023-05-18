@@ -103,6 +103,7 @@ body{
         margin-left: .5rem;
         cursor: pointer;
         position: relative;
+        margin-top: 5px;
 
         &::before{
           content: "";
@@ -142,6 +143,9 @@ body{
           margin-left: .6rem;
           cursor: pointer;
 
+          svg{
+            vertical-align: middle;
+          }
           .modal-click{
             margin-left: .3rem;
             color: $dodgerblue;
@@ -166,7 +170,7 @@ body{
 .Modal-bg{
   display: none;
   background: $modalBg;
-  min-height: 100vh;
+  height: 100vh;
   z-index: 3;
   position: fixed;
   top: 0;
@@ -177,7 +181,7 @@ body{
     z-index: 4;
     background: $white;
     padding: 1.8rem;
-    width: clamp(300px, 50%, 500px);
+    width: clamp(300px, 90%, 600px);
     border-radius: .4rem;
     display: grid;
     gap: .8rem;
@@ -213,6 +217,8 @@ body{
       padding: .4rem;
       padding-bottom: 1.5rem;
       border: 3px dashed $darkishgreyFont;
+      overflow-y: auto;
+      max-height: 290px;
 
       p{
         color: $darkishgreyFont;

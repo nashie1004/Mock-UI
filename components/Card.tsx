@@ -6,7 +6,7 @@ import { DataType } from "@/context/Context";
 
 export default function Card(props: DataType) {
     const {id, author, title, content, date}: DataType = props;
-    const {setModalIsClosed, setCurrentModalInfo, setCheckedCards, checkedCards} = useContext(Data);
+    const {setModalIsClosed, setCurrentModalInfo, setCheckedCards} = useContext(Data);
 
     function showModal(): void{
         setCurrentModalInfo(props)
@@ -27,7 +27,7 @@ export default function Card(props: DataType) {
         <div className="Card">
             <div className="options">
                 <FiMoreVertical style={{marginTop: '-.5rem'}} />
-                <input type="checkbox" onChange={addToRemovedArray} />
+                <input type='checkbox' onChange={addToRemovedArray} />
             </div>
             <div className="info">
                 <h3>{title}</h3>

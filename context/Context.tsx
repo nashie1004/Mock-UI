@@ -1,6 +1,5 @@
 'use client'
 import data from '@/app/MOCK_DATA.json'
-import { DataType } from "@/components/CardContainer"
 import { Dispatch, SetStateAction, createContext, useState } from "react"
 import {useEffect} from 'react'
 

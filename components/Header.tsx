@@ -1,12 +1,16 @@
 'use client'
 import { Data } from "@/context/Context"
 import { useContext } from "react"
+import { DataType } from "@/context/Context";
 
 export default function Header() {
-    const {checkedCards} = useContext(Data);
+    const {checkedCards, setCardsArray, setCheckedCards} = useContext(Data);
 
     function deleteSelectedCards():void{
-        console.log(checkedCards)
+        setCardsArray((prev: DataType[]) => {
+            return prev.filter((item: DataType) => !checkedCards.includes(item.id))
+        });
+        setCheckedCards([]);
     }
 
   return <div className="header">
