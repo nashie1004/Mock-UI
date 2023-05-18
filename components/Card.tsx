@@ -13,7 +13,7 @@ export default function Card(props: DataType) {
         setModalIsClosed(true)
     }
 
-    function addToRemovedArray(e):void {
+    function addToRemovedArray(e: any):void {
         if (e.target.checked){
             setCheckedCards((prev: number[]) => [...prev, id])
         } else {
@@ -24,34 +24,34 @@ export default function Card(props: DataType) {
     }
 
   return (
-        <div className="Card">
-            <div className="options">
-                <FiMoreVertical style={{marginTop: '-.5rem'}} />
-                <input type='checkbox' onChange={addToRemovedArray} />
-            </div>
-            <div className="info">
-                <h3>{title}</h3>
-                <p>
-                    <FiUser style={{stroke: 'rgb(80, 80, 80)'}} />
-                    <span>{author}</span>
-                    <FiCalendar style={{stroke: 'rgb(80, 80, 80)'}} />
-                    <span>{date}</span>
-                </p>
-                <p>
-                    {content.slice(0, 70)}...
-                    <span onClick={showModal} >
-                        <FiEye style={{stroke: 'blue'}} />
-                        <span className="modal-click">
-                            Read Full
-                        </span>
-                    </span>
-                </p>
-            </div>
-            <div className="boxes">
-                <button>#Sports</button>
-                <button>#Worldwide</button>
-                <button>#Local</button>
-            </div>
+    <div className="Card">
+        <div className="options">
+            <FiMoreVertical style={{marginTop: '-.5rem'}} />
+            <input type='checkbox' onChange={addToRemovedArray} />
         </div>
+        <div className="info">
+            <h3>{title}</h3>
+            <p>
+                <FiUser style={{stroke: 'rgb(80, 80, 80)'}} />
+                <span>{author}</span>
+                <FiCalendar style={{stroke: 'rgb(80, 80, 80)'}} />
+                <span>{date}</span>
+            </p>
+            <p>
+                {content.slice(0, 70)}...
+                <span onClick={showModal} >
+                    <FiEye style={{stroke: 'blue'}} />
+                    <span className="modal-click">
+                        Read Full
+                    </span>
+                </span>
+            </p>
+        </div>
+        <div className="boxes">
+            <button>#Sports</button>
+            <button>#Worldwide</button>
+            <button>#Local</button>
+        </div>
+    </div>
   )
 }
