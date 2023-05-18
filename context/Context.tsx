@@ -25,7 +25,21 @@ export interface DataType{
     date: string
 }
 
-export const Data = createContext();
+const contextObject: ObjectType = {
+    // modal
+    modalIsClosed: false, 
+    setModalIsClosed: () => {}, 
+    currentModalInfo: null, 
+    setCurrentModalInfo: () => {},
+    
+    // cards
+    cardsArray: [], 
+    setCardsArray: () => {},
+    checkedCards: [], 
+    setCheckedCards: () => {}
+}
+
+export const Data = createContext(contextObject);
 
 export default function Context({children}) {
     const [modalIsClosed, setModalIsClosed] = useState<boolean>(false);
