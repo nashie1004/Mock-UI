@@ -1,5 +1,5 @@
 'use client'
-import { FaBars, FaAngry, FaCalendarAlt, FaEye } from "react-icons/fa";
+import { FiEye, FiUser, FiCalendar, FiMoreVertical } from "react-icons/fi";
 import { Data } from "@/context/Context";
 import { useContext } from "react";
 
@@ -11,34 +11,34 @@ export default function Card() {
     }
 
   return (
-    <div className="Card">
-        <div className="options">
-            <FaBars />
-            <input type="checkbox" />
-        </div>
-        <div className="info">
-            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing.</h3>
-            <h3>
-                <FaAngry />
-                <span>Lorem, ipsum dolor.</span>
-                <FaCalendarAlt />
-                <span>09/10/20</span>
-            </h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima, nulla!
-                <span>
-                    <FaEye />
-                    <span onClick={showModal} className="modal-click">
-                        Read Full
+        <div className="Card">
+            <div className="options">
+                <FiMoreVertical style={{marginTop: '-.5rem'}} />
+                <input type="checkbox" />
+            </div>
+            <div className="info">
+                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing.</h3>
+                <p>
+                    <FiUser style={{stroke: 'rgb(80, 80, 80)'}} />
+                    <span>Lorem, ipsum dolor.</span>
+                    <FiCalendar style={{stroke: 'rgb(80, 80, 80)'}} />
+                    <span>09/10/20</span>
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima, nulla!
+                    <span onClick={showModal} >
+                        <FiEye style={{stroke: 'blue'}} />
+                        <span className="modal-click">
+                            Read Full
+                        </span>
                     </span>
-                </span>
-            </p>
+                </p>
+            </div>
+            <div className="boxes">
+                <button>#Sports</button>
+                <button>#Worldwide</button>
+                <button>#Local</button>
+            </div>
         </div>
-        <div className="boxes">
-            <button>#Sports</button>
-            <button>#Worldwide</button>
-            <button>#Local</button>
-        </div>
-    </div>
   )
 }

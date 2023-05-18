@@ -1,4 +1,4 @@
-$card-bg: rgb(243, 239, 239);
+$card-bg: rgb(247, 239, 239);
 $dodgerblue: dodgerblue;
 $light-blue: lightblue;
 $orange: rgb(233, 152, 3);
@@ -11,7 +11,7 @@ $greyFont: grey;
 $lightgreyFont: rgb(224, 214, 214);
 $modalBg: rgba(173, 166, 166, 0.9);
 $white: white;
-
+$red: red;
 *{
   padding: 0;
   margin: 0;
@@ -21,6 +21,10 @@ $white: white;
 body{
   min-height: 100vh;
   padding: .8rem;
+
+  svg{
+    vertical-align: middle;
+  }
 }
 @mixin btn($border, $fontColor, $bgColor){
   border: 1px solid $border;
@@ -30,11 +34,12 @@ body{
   cursor: pointer;
   border-radius: .4rem;
   background: $bgColor;
-  transition: background .25s;
+  transition: background .25s, transform .1s;
   height: 40px;
 
   &:hover{
     color: $bgColor;
+    transform: translateY(-3px);
     background: $fontColor;
   }
 }
@@ -69,9 +74,9 @@ body{
 }
 .card-container{
   display: grid;
-  gap: .5rem;
+  gap: .7rem;
   margin-inline: .7rem;
-  margin-top: .4rem;
+  margin-top: .6rem;
 
   .Card{
     display: flex; 
@@ -86,38 +91,59 @@ body{
       outline: 1px solid rgb(180, 166, 166);
     }
 
-    // todo
     .options{
+      
       input{
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        border: 1px solid $lightBlackFont;
+        width: 20px;
+        height: 20px;
         margin-left: .5rem;
-        color: $card-bg;
-        background: $card-bg;
+        cursor: pointer;
+        position: relative;
+
+        &::before{
+          content: "";
+          display: block;
+          width: .8rem;
+          height: .8rem;
+          position: absolute;
+          top: 3px;
+          left: 3px;
+        }
+        &:checked::before{
+          background: $red;
+        }
       }
     }
     .info{
       flex: 1;
       display: grid;
-      gap: .2rem;
+      gap: .3rem;
       
       h3:first-of-type{
         font-size: 1.3rem;
       }
-      h3:last-of-type{
+      p:first-of-type{
         font-size: 1.1rem;
+        font-weight:500;
 
         span{
-          margin-inline: .7rem;
-          color: $darkishgreyFont;
+          margin-inline: .5rem;
+          color: $greyFont;
         }
       }
-      p{
-        color: $greyFont;
+      p:last-of-type{
+        color: $darkishgreyFont;
 
         span{
           margin-left: .6rem;
+          cursor: pointer;
 
           .modal-click{
-            margin: 0;
+            margin-left: .3rem;
             color: $dodgerblue;
             cursor: pointer;
           }
@@ -129,17 +155,8 @@ body{
       gap: .7rem;
 
       button{
-        cursor: pointer;
-        color: $darkishgreyFont;
-        font-size: 1.1rem;
-        padding: .4rem .6rem;
-        border: 1px solid $darkishgreyFont;
-        border-radius: .4rem;
-        background: $opacitywhite;
-        height: 40px;
-
+        @include btn($darkishgreyFont, $darkishgreyFont, $opacitywhite);
         &:hover{
-          background: $darkishgreyFont;
           color: $white;
         }
       }
@@ -187,6 +204,10 @@ body{
       padding: .4rem;
       padding-bottom: 1.5rem;
       border: 3px dashed $darkishgreyFont;
+
+      p{
+        color: $darkishgreyFont;
+      }
     }
     .btns{
       display: flex;
