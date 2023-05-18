@@ -2,11 +2,14 @@
 import { FiEye, FiUser, FiCalendar, FiMoreVertical } from "react-icons/fi";
 import { Data } from "@/context/Context";
 import { useContext } from "react";
+import { DataType } from "@/app/page";
 
-export default function Card() {
-    const {setModalIsClosed} = useContext(Data);
+export default function Card(props: DataType) {
+    const {id, author, title, content, date}: DataType = props;
+    const {setModalIsClosed, setCurrentModalInfo} = useContext(Data);
 
     function showModal(): void{
+        setCurrentModalInfo(props)
         setModalIsClosed(true)
     }
 
@@ -17,15 +20,17 @@ export default function Card() {
                 <input type="checkbox" />
             </div>
             <div className="info">
-                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing.</h3>
+                <h3>{title}</h3>
                 <p>
                     <FiUser style={{stroke: 'rgb(80, 80, 80)'}} />
-                    <span>Lorem, ipsum dolor.</span>
+                    <span>{author}</span>
                     <FiCalendar style={{stroke: 'rgb(80, 80, 80)'}} />
-                    <span>09/10/20</span>
+                    <span>{date}</span>
                 </p>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima, nulla!
+                    {
+                        content.slice(0, 70)
+                    }...
                     <span onClick={showModal} >
                         <FiEye style={{stroke: 'blue'}} />
                         <span className="modal-click">

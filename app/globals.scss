@@ -23,7 +23,7 @@ body{
   padding: .8rem;
 
   svg{
-    vertical-align: middle;
+    // vertical-align: middle;
   }
 }
 @mixin btn($border, $fontColor, $bgColor){
@@ -181,24 +181,32 @@ body{
     border-radius: .4rem;
     display: grid;
     gap: .8rem;
+    position: relative;
+
+    .closeModal{
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      margin-left: auto;
+      background: $lightgreyFont;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      
+      &:hover{
+        background: $inputBorder;
+      }
+    }
 
     h2{
       display: flex;
-
-      .closeModal{
-        margin-left: auto;
-        background: $lightgreyFont;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        display: grid;
-        place-items: center;
-        
-        &:hover{
-          background: $inputBorder;
-        }
-      }
+      width: 91.5%;
+    }
+    h3{
+      color: $greyFont;
     }
     .text{
       padding: .4rem;
