@@ -3,10 +3,10 @@ import { Data } from "@/context/Context"
 import { useContext } from "react"
 
 export default function Header() {
-    const {} = useContext(Data);
+    const {checkedCards} = useContext(Data);
 
     function deleteSelectedCards():void{
-        alert(1)
+        console.log(checkedCards)
     }
 
   return <div className="header">

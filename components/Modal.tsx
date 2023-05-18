@@ -8,7 +8,6 @@ export default function Modal() {
 
     function closeModal():void{
         setModalIsClosed(false)
-        
     }
 
     return (
