@@ -1,7 +1,7 @@
 'use client'
 import data from '@/app/MOCK_DATA.json'
 import { Dispatch, SetStateAction, createContext, useState } from "react"
-import {useEffect, ReactNode} from 'react'
+import {useEffect} from 'react'
 
 interface ObjectType{
     // modal
@@ -25,7 +25,6 @@ export interface DataType{
     date: string
 }
 
-// temp
 const contextObject: ObjectType = {
     // modal
     modalIsClosed: false, 
@@ -42,7 +41,7 @@ const contextObject: ObjectType = {
 
 export const Data = createContext(contextObject);
 
-export default function Context({children}: {children: ReactNode})  {
+export default function Context({children}) {
     const [modalIsClosed, setModalIsClosed] = useState<boolean>(false);
     const [currentModalInfo, setCurrentModalInfo] = useState<DataType | null>(null)
     const [checkedCards, setCheckedCards] = useState<number[]>([]);

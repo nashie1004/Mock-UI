@@ -10,10 +10,12 @@ export default function CardContainer() {
   return <div className="card-container">
     {
         cardsArray.map((item: DataType, i: number) => {
-            return <Card
-                key={item.id}
-                {...item}
-            />;
+            if (!cardsArray.includes(item.id)){
+                return <Card
+                    key={item.id}
+                    {...item}
+                />;
+            }
         })
     }
     </div>
