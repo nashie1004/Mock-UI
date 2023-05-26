@@ -41,7 +41,7 @@ const contextObject: ObjectType = {
 
 export const Data = createContext(contextObject);
 
-export default function Context({children}) {
+export default function Context({children}: any) {
     const [modalIsClosed, setModalIsClosed] = useState<boolean>(false);
     const [currentModalInfo, setCurrentModalInfo] = useState<DataType | null>(null)
     const [checkedCards, setCheckedCards] = useState<number[]>([]);
@@ -56,13 +56,13 @@ export default function Context({children}) {
         modalIsClosed, 
         setModalIsClosed, 
         currentModalInfo, 
-        setCurrentModalInfo,
+        setCurrentModalInfo, 
         
         // cards
         cardsArray, 
-        setCardsArray,
+        setCardsArray, 
         checkedCards, 
-        setCheckedCards
+        setCheckedCards 
     }
 
     return (

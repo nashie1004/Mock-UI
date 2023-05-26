@@ -13,7 +13,7 @@ export default function Card(props: DataType) {
         setModalIsClosed(true)
     }
 
-    function addToRemovedArray(e):void {
+    function addToRemovedArray(e: any):void {
         if (e.target.checked){
             setCheckedCards((prev: number[]) => [...prev, id])
         } else {
